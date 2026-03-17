@@ -1,6 +1,6 @@
-# MRP-AI — RAG Q&A Bot
+# MRP-AI : RAG Q&A Bot
 
-A Retrieval-Augmented Generation (RAG) Q&A system built as a Mini Research Problem (MRP) for Sofia University. Drop documents into a folder, build a local vector index, then ask questions — grounded in your own documents, not hallucinated.
+A Retrieval-Augmented Generation (RAG) Q&A system built as a Mini Research Problem (MRP) for Sofia University. Drop documents into a folder, build a local vector index, then ask questions : grounded in your own documents, not hallucinated.
 
 ---
 
@@ -35,14 +35,14 @@ pip install -r requirements.txt
 
 ```bash
 cp .env.example .env
-# then edit .env — see Configuration section below
+# then edit .env : see Configuration section below
 ```
 
 ### 3. Add your documents
 
 Drop any `.pdf`, `.txt`, `.md`, or `.docx` files into `docs/`.
 
-### 4. Run Part 1 — build the index
+### 4. Run Part 1 : build the index
 
 ```bash
 .venv/bin/python part1_ingest.py
@@ -53,7 +53,7 @@ Optional flags:
 .venv/bin/python part1_ingest.py --docs ./my_docs --index ./data/faiss_index
 ```
 
-### 5. Run Part 2 — ask questions
+### 5. Run Part 2 : ask questions
 
 ```bash
 .venv/bin/python part2_rag.py
@@ -71,9 +71,9 @@ Optional flags:
 
 Set `LLM_PROVIDER` in `.env` to one of:
 
-- **`ollama`** — local models via [Ollama](https://ollama.com/download) (no API key needed)
-- **`openai`** — OpenAI API (requires `OPENAI_API_KEY`)
-- **`huggingface`** — HuggingFace Inference API (requires `HF_API_TOKEN`)
+- **`ollama`** : local models via [Ollama](https://ollama.com/download) (no API key needed)
+- **`openai`** : OpenAI API (requires `OPENAI_API_KEY`)
+- **`huggingface`** : HuggingFace Inference API (requires `HF_API_TOKEN`)
 
 ---
 
@@ -110,7 +110,7 @@ These are the variables you can tune in `.env` to run experiments for your resea
 
 ### LLM model
 
-Swap models without rebuilding the index — only Part 2 is affected.
+Swap models without rebuilding the index : only Part 2 is affected.
 
 | Provider | Models to try |
 |---|---|
@@ -120,7 +120,7 @@ Swap models without rebuilding the index — only Part 2 is affected.
 
 ### RAG vs vanilla LLM
 
-Use `--compare` mode to ask the same question with and without document context. This is the core research comparison — RAG answers are grounded in your corpus; vanilla answers rely solely on the model's training data.
+Use `--compare` mode to ask the same question with and without document context. This is the core research comparison : RAG answers are grounded in your corpus; vanilla answers rely solely on the model's training data.
 
 ```bash
 .venv/bin/python part2_rag.py --compare
@@ -144,11 +144,11 @@ All settings live in `.env` (copy from `.env.example`):
 | Variable | Default | Description |
 |---|---|---|
 | `LLM_PROVIDER` | `openai` | `openai` / `ollama` / `huggingface` |
-| `OPENAI_API_KEY` | — | Required for `openai` provider |
+| `OPENAI_API_KEY` | : | Required for `openai` provider |
 | `LLM_MODEL` | `gpt-3.5-turbo` | OpenAI model name |
 | `OLLAMA_BASE_URL` | `http://localhost:11434` | Ollama server URL |
 | `OLLAMA_MODEL` | `llama3.2` | Ollama model name |
-| `HF_API_TOKEN` | — | HuggingFace token |
+| `HF_API_TOKEN` | : | HuggingFace token |
 | `HF_MODEL` | `mistralai/Mixtral-8x7B-Instruct-v0.1` | HuggingFace model |
 | `EMBEDDING_MODEL` | `sentence-transformers` | `sentence-transformers` or `openai` |
 | `CHUNK_SIZE` | `500` | Characters per chunk |
@@ -174,7 +174,7 @@ MRP-AI/
 ├── config.py               # Central config (reads from .env)
 ├── requirements.txt
 ├── .env                    # Your local config (never commit this)
-└── .env.example            # Template — copy to .env
+└── .env.example            # Template : copy to .env
 ```
 
 ---
@@ -199,8 +199,8 @@ To pre-cache the model (e.g. before going offline):
 
 ## References
 
-1. [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) — Lewis et al. (2020), the original RAG paper
-2. [LangChain Documentation](https://python.langchain.com/docs/introduction/) — framework used for the RAG chain and document loaders
-3. [FAISS — Facebook AI Similarity Search](https://faiss.ai/) — local vector store used for embedding indexing and retrieval
-4. [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) — embedding model used to encode documents and queries
-5. [Ollama](https://ollama.com) — local LLM runner used to serve llama3.2 without an API key
+1. [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) : Lewis et al. (2020), the original RAG paper
+2. [LangChain Documentation](https://python.langchain.com/docs/introduction/) : framework used for the RAG chain and document loaders
+3. [FAISS : Facebook AI Similarity Search](https://faiss.ai/) : local vector store used for embedding indexing and retrieval
+4. [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) : embedding model used to encode documents and queries
+5. [Ollama](https://ollama.com) : local LLM runner used to serve llama3.2 without an API key
