@@ -194,3 +194,13 @@ To pre-cache the model (e.g. before going offline):
 - Python 3.9+
 - See `requirements.txt` for all dependencies
 - For Ollama: macOS / Linux / Windows with ~4 GB RAM free
+
+---
+
+## References
+
+1. [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) — Lewis et al. (2020), the original RAG paper
+2. [LangChain Documentation](https://python.langchain.com/docs/introduction/) — framework used for the RAG chain and document loaders
+3. [FAISS — Facebook AI Similarity Search](https://faiss.ai/) — local vector store used for embedding indexing and retrieval
+4. [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) — embedding model used to encode documents and queries
+5. [Ollama](https://ollama.com) — local LLM runner used to serve llama3.2 without an API key
